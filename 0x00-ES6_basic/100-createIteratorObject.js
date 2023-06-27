@@ -1,28 +1,35 @@
 /**
- * Creates an iterator object to iterate through every employee in every department.
- * @param {Object} report - The report object created with createReportObject.
- * @return {Object} An iterator object to iterate through employees.
+ * Creates an iterator object to iterate through every employee in every department of the report.
+ * @param {Object} report - The report object.
+ * @return {Object} An iterator object.
  */
 export default function createIteratorObject(report) {
+  let departments = Object.keys(report.allEmployees);
   let currentDepartmentIndex = 0;
   let currentEmployeeIndex = 0;
-  const departments = Object.keys(report.allEmployees);
-  const employees = Object.values(report.allEmployees).flatMap((list) => list);
 
   return {
     next() {
-      if (currentEmployeeIndex >= employees.length) {
-        if (currentDepartmentIndex >= departments.length) {
-          return {done: true};
-        }
-        currentDepartmentIndex++;
-        currentEmployeeIndex = 0;
+      if (currentDepartmentIndex >= departments.length) {
+        // All departments have been iterated, return done: true
+        return { value: undefined, done: true };
       }
 
-      const employee = employees[currentEmployeeIndex];
-      currentEmployeeIndex++;
+      let currentDepartment = departments[currentDepartmentIndex];
+      let employees = report.allEmployees[currentDepartment];
+      let currentEmployee = employees[currentEmployeeIndex];
 
-      return {value: employee, done: false};
-    },
+      if (currentEmployeeIndex >= employees.length - 1) {
+        // Last employee in the department, move to the next department
+        currentDepartmentIndex++;
+        currentEmployeeIndex = 0;
+      } else {
+        // Move to the next employee in the same department
+        currentEmployeeIndex++;
+      }
+
+      // Return the current employee value with done: false
+      return { value: currentEmployee, done: false };
+    }
   };
 }
