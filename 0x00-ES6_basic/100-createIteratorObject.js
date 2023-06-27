@@ -4,25 +4,26 @@
  * @return {Object} An iterator object to iterate through employees.
  */
 export default function createIteratorObject(report) {
-  let currentDepartmentIndex = 0;
-  let currentEmployeeIndex = 0;
-  const departments = Object.keys(report.allEmployees);
-  const employees = Object.values(report.allEmployees).flatMap((list) => list);
-
-  return {
-    next() {
-      if (currentEmployeeIndex >= employees.length) {
-        if (currentDepartmentIndex >= departments.length) {
-          return {done: true};
+    let currentDepartmentIndex = 0;
+    let currentEmployeeIndex = 0;
+    const departments = Object.keys(report.allEmployees);
+    const employees = Object.values(report.allEmployees).flatMap((list) => list);
+  
+    return {
+      next() {
+        if (currentEmployeeIndex >= employees.length) {
+          if (currentDepartmentIndex >= departments.length) {
+            return { done: true };
+          }
+          currentDepartmentIndex++;
+          currentEmployeeIndex = 0;
         }
-        currentDepartmentIndex++;
-        currentEmployeeIndex = 0;
-      }
-
-      const employee = employees[currentEmployeeIndex];
-      currentEmployeeIndex++;
-
-      return {value: employee, done: false};
-    },
-  };
-}
+  
+        const employee = employees[currentEmployeeIndex];
+        currentEmployeeIndex++;
+  
+        return { value: employee, done: false };
+      },
+    };
+  }
+  
