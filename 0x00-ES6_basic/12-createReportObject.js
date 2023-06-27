@@ -4,14 +4,10 @@
  * @return {Object} The report object with all employees and the getNumberOfDepartments method.
  */
 export default function createReportObject(employeesList) {
-  const reportObject = {
-    allEmployees: {
-      ...employeesList,
-    },
-    getNumberOfDepartments() {
-      return Object.keys(employeesList).length;
+  return {
+    allEmployees: { ...employeesList },
+    getNumberOfDepartments(list) {
+      return Object.keys(list).length;
     },
   };
-
-  return reportObject;
 }

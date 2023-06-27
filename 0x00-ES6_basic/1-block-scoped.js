@@ -4,13 +4,13 @@
  * @return {Array} An array containing task and task2 values.
  */
 export default function taskBlock(trueOrFalse) {
-  const innerTask = true;
-  const innerTask2 = false;
-  if (trueOrFalse) {
-    const innerTask = true;
-    const innerTask2 = false;
+  const task = false;
+  const task2 = true;
 
-    return [innerTask, innerTask2];
+  if (trueOrFalse) {
+    const task = true; // eslint-disable-line no-unused-vars
+    const task2 = false; // eslint-disable-line no-unused-vars
   }
-  return [innerTask, innerTask2];
+
+  return [task, task2];
 }
