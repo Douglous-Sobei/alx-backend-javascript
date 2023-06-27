@@ -1,15 +1,13 @@
 /**
- * Appends a specified string to each value in an array.
+ * Appends a string to each value in the array.
  * @param {Array} array - The input array.
- * @param {string} appendString - The string to append to each array value.
- * @return {Array} The new array with the appended string.
+ * @param {string} appendString - The string to append.
+ * @return {Array} The modified array with the string appended to each value.
  */
 export default function appendToEachArrayValue(array, appendString) {
-  const newArray = [];
-
-  for (const value of array) {
-    newArray.push(appendString + value);
+  for (let value of array) {
+    value = appendString + value;
   }
 
-  return newArray;
+  return array;
 }
