@@ -5,10 +5,9 @@
  * @return {Object} The object containing the department name and employees.
  */
 export default function createEmployeesObject(departmentName, employees) {
-    const employeesObject = {
-      [departmentName]: [...employees],
-    };
-  
-    return employeesObject;
-  }
-  
+  const employeesObject = {
+    [departmentName]: [...employees],
+  };
+
+  return employeesObject;
+}

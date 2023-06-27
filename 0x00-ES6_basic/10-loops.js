@@ -5,12 +5,11 @@
  * @return {Array} The new array with the appended string.
  */
 export default function appendToEachArrayValue(array, appendString) {
-    const newArray = [];
-  
-    for (let value of array) {
-      newArray.push(appendString + value);
-    }
-  
-    return newArray;
+  const newArray = [];
+
+  for (const value of array) {
+    newArray.push(appendString + value);
   }
-  
+
+  return newArray;
+}
