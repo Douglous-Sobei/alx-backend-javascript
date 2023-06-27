@@ -4,10 +4,13 @@
  * @return {Array} An array containing task and task2 values.
  */
 export default function taskBlock(trueOrFalse) {
+  const innerTask = true;
+  const innerTask2 = false;
   if (trueOrFalse) {
     const innerTask = true;
     const innerTask2 = false;
-  }
 
+    return [innerTask, innerTask2];
+  }
   return [innerTask, innerTask2];
 }
