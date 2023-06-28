@@ -9,12 +9,15 @@ import uploadPhoto from './5-photo-reject';
  * @return {Promise<Array>} A promise that resolves with an array of objects containing the status and value/error of each promise.
  */
 export default async function handleProfileSignup(firstName, lastName, fileName) {
-  return Promise
-      .allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
-      .then((results) => (
-        results.map((result) => ({
-          status: result.status,
-          value: result.status === 'fulfilled' ? result.value : String(result.reason),
-        }))
-      ));
+  const userData = await signUpUser(firstName, lastName).then((data) => ({
+    status: 'fulfilled',
+    value: data,
+  }));
+
+  const fileData = await uploadPhoto(fileName).catch((err) => ({
+    status: 'rejected',
+    value: err.toString(),
+  }));
+
+  return Promise.resolve([userData, fileData]);
 }
