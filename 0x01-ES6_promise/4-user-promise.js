@@ -4,7 +4,7 @@
  * @param {string} lastName - The last name of the user.
  * @return {Promise} A promise that resolves with an object containing the user's first name and last name.
  */
-function signUpUser(firstName, lastName) {
+export default function signUpUser(firstName, lastName) {
   return Promise.resolve({
     firstName,
     lastName,
