@@ -1,10 +1,7 @@
 /**
- * Returns a promise that resolves or rejects
- * based on the given boolean parameter.
- * @param {boolean} success - Indicates whether the response should
- * be resolved or rejected.
- * @return {Promise} A promise that resolves or rejects based on
- * the success parameter.
+ * Returns a promise that resolves or rejects based on the given boolean parameter.
+ * @param {boolean} success - Indicates whether the response should be resolved or rejected.
+ * @returns {Promise} A promise that resolves or rejects based on the success parameter.
  */
 function getFullResponseFromAPI(success) {
   return new Promise(function(resolve, reject) {
