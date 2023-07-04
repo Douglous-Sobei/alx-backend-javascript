@@ -1,22 +1,21 @@
-/**
- * Returns an array of students
- * @returns {Array} Array of students objects.
- */
-export default function getListStudents () {
-  const student1 = {
+export default function getListStudents() {
+  const o1 = {
     id: 1,
     firstName: 'Guillaume',
-    location: 'San Francisco'
-  }
-  const student2 = {
+    location: 'San Francisco',
+  };
+
+  const o2 = {
     id: 2,
     firstName: 'James',
-    location: 'Columbia'
-  }
-  const student3 = {
+    location: 'Columbia',
+  };
+
+  const o3 = {
     id: 5,
     firstName: 'Serena',
-    location: 'San Francisco'
-  }
-  return [student1, student2, student3]
+    location: 'San Francisco',
+  };
+
+  return [o1, o2, o3];
 }
