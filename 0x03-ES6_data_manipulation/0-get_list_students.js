@@ -2,7 +2,7 @@
  * Returns an array of students
  * @returns {Array} Array of students objects.
  */
-function getListStudents() {
+export default function getListStudents() {
   /**
    * Represents a student
    * @typedef {Object} Student
